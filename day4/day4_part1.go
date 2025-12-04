@@ -20,7 +20,7 @@ func safeChar(points []point, width, x, y int) (rune, bool) {
 	if width <= 0 {
 		return 0, false
 	}
-	if x < 0 || y < 0 || x >= width {
+	if x < 0 || y < 0 {
 		return 0, false
 	}
 	idx := y*width + x
@@ -30,8 +30,9 @@ func safeChar(points []point, width, x, y int) (rune, bool) {
 	return points[idx].character, true
 }
 
-func (s *Solution) Day4part1() ([]point, int) {
-	points := getInput()
+var points = getInput()
+
+func (s *Solution) Day4part1() int {
 	fmt.Println(lineLength)
 	counter := 0
 
@@ -69,7 +70,7 @@ func (s *Solution) Day4part1() ([]point, int) {
 		}
 	}
 
-	return points, counter
+	return counter
 }
 
 func getInput() []point {
