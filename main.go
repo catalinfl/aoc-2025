@@ -1,8 +1,8 @@
 package main
 
-import "github.com/catalinfl/aoc-2025/day3"
+import "github.com/catalinfl/aoc-2025/day4"
 
 func main() {
-	s := day3.Solution{}
-	s.Day3part2()
+	s := day4.Solution{}
+	s.Day4part2()
 }
