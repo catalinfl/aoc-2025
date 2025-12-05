@@ -15,9 +15,8 @@ type id struct {
 	idEnd   int
 }
 
-func (s *Solution) Day5part1() {
-	idsSend, idsAvailable := getInput()
-	idArray := make([]id, 0, len(idsAvailable))
+func getIdsRange(idsSend []string) []id {
+	var idArray []id
 	for _, line := range idsSend {
 		parts := strings.SplitN(line, "-", 2)
 		idArray = append(idArray, id{
@@ -25,6 +24,13 @@ func (s *Solution) Day5part1() {
 			idEnd:   atoi(parts[1]),
 		})
 	}
+
+	return idArray
+}
+
+func (s *Solution) Day5part1() {
+	idsSend, idsAvailable := getInput()
+	idArray := getIdsRange(idsSend)
 
 	idAvailableArray := make([]int, 0, len(idsAvailable))
 	for _, strId := range idsAvailable {
